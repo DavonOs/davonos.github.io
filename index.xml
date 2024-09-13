@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>DavonOs</title>
+    <link>https://davonos.github.io/</link>
+    <description>Recent content on DavonOs</description>
+    <image>
+      <title>DavonOs</title>
+      <url>https://davonos.github.io/images/papermod-cover.png</url>
+      <link>https://davonos.github.io/images/papermod-cover.png</link>
+    </image>
+    <generator>Hugo -- 0.133.1</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 20 Nov 2022 09:03:20 -0800</lastBuildDate>
+    <atom:link href="https://davonos.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hugo 博客开发</title>
+      <link>https://davonos.github.io/posts/hugo-%E5%8D%9A%E5%AE%A2%E5%BC%80%E5%8F%91/</link>
+      <pubDate>Sun, 20 Nov 2022 09:03:20 -0800</pubDate>
+      <guid>https://davonos.github.io/posts/hugo-%E5%8D%9A%E5%AE%A2%E5%BC%80%E5%8F%91/</guid>
+      <description>欢迎来到这个Hugo使用系列教程，将教你如何使用一个叫 Hugo 的简单静态网站生成器，从头开始建立你自己的博客网站&amp;ndash;免费的!。
+Hugo，世界上最快的网站建设框架。
+它是为绝对的初学者准备的，会尽可能为你详细地介绍一切。目标是让你了解如何创建你自己的第一个Hugo博客网站，掌握构建 Hugo 网站的基础知识，并在结束后尽可能地定制它。
+什么是Hugo？ Hugo 是非常简单的一个静态网站生成器，因为它是以单一的二进制文件分发的&amp;ndash;这是Go程序的众多好处之一。它需要一个源文件目录，并在其上运行一个构建过程，以生成一个纯粹的静态网站。
+Hugo 的独特之处在于其无与伦比的构建速度和围绕布局(layouts)、分类(taxonomies)和内容(content)的严格约定。它是一个静态网站生成器，为Let&amp;rsquo;s Encrypt，1Password，Linode和 digital.gov 等知名网站提供支持。
+我们将学习哪些技术？ Hugo：一个生成实际页面的工具，当人们访问你的网站时，他们会看到这些页面！我们将讨论Hugo的细节，学习如何使用Hugo的基础知识。如果你有一个问题没有得到解决，请查看他们的文档，它有你需要知道的一切。 Markdown：用来写博文的语言。它是一种非常简约和容易学习的语言，专门为内容作者设计。 HTML：将被用于我们的模板。这是Hugo用来生成我们文章和页面布局的代码。 CSS：用来使我们的网站漂亮的语言。如果没有CSS，大多数网页看起来就像90年代初的东西。 我需要什么？ 你最起码需要一台运行Mac、Linux或Windows的电脑&amp;ndash;以及一些互联网！
+我们也强烈建议你下载一个专门用于编写代码的文本编辑器。我们推荐VS Code，一个来自微软的非常流行的文本编辑器&amp;ndash;当然使用任何代码文本编辑器也可以工作。
+安装 Installation 在我们开始之前，让我们在电脑上安装一些工具，这些工具将帮助我们建立我们的网站。
+Hugo CLI
+首先，我们将安装Hugo命令行界面（CLI）。Hugo CLI将帮助我们生成我们的项目文件夹，并为我们提供一个开发服务器，这样我们就可以在没有任何真正的服务器的情况下在我们的网站上工作。
+MacOS|Linux
+如果你使用macOS或Linux，那么Homebrew是安装Hugo最简单的方法。一旦你安装了Homebrew，就可以运行：
+brew install hugo 如果你并没有安装Homebrew。前往Hugo发布页面，找到hugo_extended_xxxx_Linux-64bit.tar.gz 文件。x代表的是版本号，会有所不同。点击该链接，下载压缩文件，并将压缩文件解压到你希望项目运行的文件夹中。
+如果你看到应用程序不能被打开，因为它来自一个不明身份的开发者，请到系统偏好-&amp;gt;安全和隐私-&amp;gt;常规。你应该看到一个选项，点击Hugo应用程序旁边的 &amp;ldquo;允许&amp;rdquo;。
+Windows
+与其他操作系统相比，Windows有一些额外的步骤，但在Windows的官方安装页面上有明确的记录。按照这些说明进行，完成后再回来看看。
+如果你是在Windows上，那么Chocolatey软件包管理器就是你的选择，运行：
+choco install hugo-extended -confirm 如果没有安装，同样可以前往Hugo发布页面，找到hugo_extended_xxxx_windows-64bit.tar.gz 下载压缩文件并解压到你希望运行的文件夹中。
+任何用于编辑代码的文本编辑器都是好的，但建议下载使用 VSCode，因为它，适用于任何操作系统，有广泛的扩展库，使开发更快。
+让我们检查一下，打开一个新的终端，输入 hugo version 以检查 Hugo 版本
+如果打印出一个版本号，说明安装成功，您就可以开始了！
+如果没有，请查阅 Hugo 文档 或访问 Hugo 社区论坛 。
+设置您的 Hugo 网站 生成站点 打开你的终端程序（或Windows上的命令行程序），导航到你希望你的 Hugo 项目所在的目录并运行以下命令：</description>
+    </item>
+    <item>
+      <title>我的第一篇文章</title>
+      <link>https://davonos.github.io/posts/my-first-post/</link>
+      <pubDate>Sun, 20 Nov 2022 09:03:20 -0800</pubDate>
+      <guid>https://davonos.github.io/posts/my-first-post/</guid>
+      <description>访问 Hugo 网站！
+Hugo + PaperMod搭建技术博客
+折腾 Hugo &amp;amp; PaperMod 主题 - Dvel&amp;rsquo;s Blog
+在你的 Hugo 站点文件夹内， 运行命令：
+git submodule add --depth=1 https://github.com/adityatelange/hugo-PaperMod.git themes/PaperMod git submodule update --init --recursive # needed when you reclone your repo (submodules may not get cloned automatically) You may use --branch v7.0 to end of above command if you want to stick to specific release. Read more about git submodules here.
+更新：在Hugo 站点文件目录下运行：git submodule update --remote --merge</description>
+    </item>
+    <item>
+      <title></title>
+      <link>https://davonos.github.io/posts/hugo-beginner-tutorial/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://davonos.github.io/posts/hugo-beginner-tutorial/</guid>
+      <description>Hugo的布局 了解Layouts是如何帮助您设置和重复使用 Hugo 网站的主要结构。
+善于利用Layouts是创建一个易于维护、灵活和繁荣的Hugo网站的关键，因此，让我们看看它们是如何发挥作用的。
+什么是布局（Layouts）？ Layouts 是用于页面上围绕内容的所有 &amp;ldquo;框架&amp;rdquo;。例如，想想一个网站上不同页面之间保持相对不变的所有东西，如页眉和页脚。
+在Hugo中，网站上的每个页面都是一个内容文件。最上面是一小段元数据，叫做front matter，后面是markdown。内容文件的目标是，以其最纯粹的形式存储内容。在内容文件中很少有任何HTML或其他表现逻辑。
+所有用于显示和格式化内容的花哨的HTML都存在于布局中。一个布局可能被用于多个内容页面。例如，在一个项目组合网站上，你可能会对你的“关于”页和服务页面使用相同的布局。其他时候，特别是如果你正在做一些复杂的事情，你可能会有一个布局专门用于一个单独的内容页面，例如一个带有复杂表格的联系页面。
+你的第一页 Your first page Hugo有一个叫做 Page Bundles 的概念，可能很难让你头脑清醒。我们将在这里做最低限度的工作，以使您的网站正常运行。
+默认情况下，内容页使用一种叫做 single（单页）的布局。创建一个确切命名为_index.md的内容文件，包括下划线和所有内容，这是一个特例。(Creating a content file which is named exactly , underscore and all, is the exception to this. )
+这些页面就像它周围页面的目录，默认使用一种叫做 list（列表）的布局。
+就像一本好的非小说类书籍一样，从目录开始是一个很好的做法。您将为网站的主页执行此操作。
+如果这一切听起来令人困惑，那么它实际上比听起来简单得多。在\content目录下创建一个名为_index.md的文件，内容如下：
+--- title: Home --- Hello, I&amp;#39;m a ferocious lion. --- 是之前提到的元数据或 front matter。我们将在今后的课程中讨论这个问题。
+您的第一个布局 Your first layout Hugo 有一个层次结构来确定用于content_d文件的布局。最后的退路是在 _default 目录中寻找一个布局。(The last fallback is looking for a layout in the directory.</description>
+    </item>
+  </channel>
+</rss>

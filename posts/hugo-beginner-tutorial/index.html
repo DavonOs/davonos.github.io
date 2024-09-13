@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>DavonOs</title>
+<meta name="keywords" content="">
+<meta name="description" content="Hugo的布局 了解Layouts是如何帮助您设置和重复使用 Hugo 网站的主要结构。
+善于利用Layouts是创建一个易于维护、灵活和繁荣的Hugo网站的关键，因此，让我们看看它们是如何发挥作用的。
+什么是布局（Layouts）？ Layouts 是用于页面上围绕内容的所有 &ldquo;框架&rdquo;。例如，想想一个网站上不同页面之间保持相对不变的所有东西，如页眉和页脚。
+在Hugo中，网站上的每个页面都是一个内容文件。最上面是一小段元数据，叫做front matter，后面是markdown。内容文件的目标是，以其最纯粹的形式存储内容。在内容文件中很少有任何HTML或其他表现逻辑。
+所有用于显示和格式化内容的花哨的HTML都存在于布局中。一个布局可能被用于多个内容页面。例如，在一个项目组合网站上，你可能会对你的“关于”页和服务页面使用相同的布局。其他时候，特别是如果你正在做一些复杂的事情，你可能会有一个布局专门用于一个单独的内容页面，例如一个带有复杂表格的联系页面。
+你的第一页 Your first page Hugo有一个叫做 Page Bundles 的概念，可能很难让你头脑清醒。我们将在这里做最低限度的工作，以使您的网站正常运行。
+默认情况下，内容页使用一种叫做 single（单页）的布局。创建一个确切命名为_index.md的内容文件，包括下划线和所有内容，这是一个特例。(Creating a content file which is named exactly , underscore and all, is the exception to this. )
+这些页面就像它周围页面的目录，默认使用一种叫做 list（列表）的布局。
+就像一本好的非小说类书籍一样，从目录开始是一个很好的做法。您将为网站的主页执行此操作。
+如果这一切听起来令人困惑，那么它实际上比听起来简单得多。在\content目录下创建一个名为_index.md的文件，内容如下：
+--- title: Home --- Hello, I&#39;m a ferocious lion. --- 是之前提到的元数据或 front matter。我们将在今后的课程中讨论这个问题。
+您的第一个布局 Your first layout Hugo 有一个层次结构来确定用于content_d文件的布局。最后的退路是在 _default 目录中寻找一个布局。(The last fallback is looking for a layout in the directory.">
+<meta name="author" content="davon">
+<link rel="canonical" href="https://davonos.github.io/posts/hugo-beginner-tutorial/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.fc220c15db4aef0318bbf30adc45d33d4d7c88deff3238b23eb255afdc472ca6.css" integrity="sha256-/CIMFdtK7wMYu/MK3EXTPU18iN7/MjiyPrJVr9xHLKY=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://davonos.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://davonos.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://davonos.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://davonos.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://davonos.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://davonos.github.io/posts/hugo-beginner-tutorial/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+  
+
+<meta property="og:title" content="" />
+<meta property="og:description" content="Hugo的布局 了解Layouts是如何帮助您设置和重复使用 Hugo 网站的主要结构。
+善于利用Layouts是创建一个易于维护、灵活和繁荣的Hugo网站的关键，因此，让我们看看它们是如何发挥作用的。
+什么是布局（Layouts）？ Layouts 是用于页面上围绕内容的所有 &ldquo;框架&rdquo;。例如，想想一个网站上不同页面之间保持相对不变的所有东西，如页眉和页脚。
+在Hugo中，网站上的每个页面都是一个内容文件。最上面是一小段元数据，叫做front matter，后面是markdown。内容文件的目标是，以其最纯粹的形式存储内容。在内容文件中很少有任何HTML或其他表现逻辑。
+所有用于显示和格式化内容的花哨的HTML都存在于布局中。一个布局可能被用于多个内容页面。例如，在一个项目组合网站上，你可能会对你的“关于”页和服务页面使用相同的布局。其他时候，特别是如果你正在做一些复杂的事情，你可能会有一个布局专门用于一个单独的内容页面，例如一个带有复杂表格的联系页面。
+你的第一页 Your first page Hugo有一个叫做 Page Bundles 的概念，可能很难让你头脑清醒。我们将在这里做最低限度的工作，以使您的网站正常运行。
+默认情况下，内容页使用一种叫做 single（单页）的布局。创建一个确切命名为_index.md的内容文件，包括下划线和所有内容，这是一个特例。(Creating a content file which is named exactly , underscore and all, is the exception to this. )
+这些页面就像它周围页面的目录，默认使用一种叫做 list（列表）的布局。
+就像一本好的非小说类书籍一样，从目录开始是一个很好的做法。您将为网站的主页执行此操作。
+如果这一切听起来令人困惑，那么它实际上比听起来简单得多。在\content目录下创建一个名为_index.md的文件，内容如下：
+--- title: Home --- Hello, I&#39;m a ferocious lion. --- 是之前提到的元数据或 front matter。我们将在今后的课程中讨论这个问题。
+您的第一个布局 Your first layout Hugo 有一个层次结构来确定用于content_d文件的布局。最后的退路是在 _default 目录中寻找一个布局。(The last fallback is looking for a layout in the directory." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://davonos.github.io/posts/hugo-beginner-tutorial/" />
+<meta property="og:image" content="https://davonos.github.io/images/papermod-cover.png" />
+<meta property="article:section" content="posts" />
+
+
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://davonos.github.io/images/papermod-cover.png" />
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Hugo的布局 了解Layouts是如何帮助您设置和重复使用 Hugo 网站的主要结构。
+善于利用Layouts是创建一个易于维护、灵活和繁荣的Hugo网站的关键，因此，让我们看看它们是如何发挥作用的。
+什么是布局（Layouts）？ Layouts 是用于页面上围绕内容的所有 &ldquo;框架&rdquo;。例如，想想一个网站上不同页面之间保持相对不变的所有东西，如页眉和页脚。
+在Hugo中，网站上的每个页面都是一个内容文件。最上面是一小段元数据，叫做front matter，后面是markdown。内容文件的目标是，以其最纯粹的形式存储内容。在内容文件中很少有任何HTML或其他表现逻辑。
+所有用于显示和格式化内容的花哨的HTML都存在于布局中。一个布局可能被用于多个内容页面。例如，在一个项目组合网站上，你可能会对你的“关于”页和服务页面使用相同的布局。其他时候，特别是如果你正在做一些复杂的事情，你可能会有一个布局专门用于一个单独的内容页面，例如一个带有复杂表格的联系页面。
+你的第一页 Your first page Hugo有一个叫做 Page Bundles 的概念，可能很难让你头脑清醒。我们将在这里做最低限度的工作，以使您的网站正常运行。
+默认情况下，内容页使用一种叫做 single（单页）的布局。创建一个确切命名为_index.md的内容文件，包括下划线和所有内容，这是一个特例。(Creating a content file which is named exactly , underscore and all, is the exception to this. )
+这些页面就像它周围页面的目录，默认使用一种叫做 list（列表）的布局。
+就像一本好的非小说类书籍一样，从目录开始是一个很好的做法。您将为网站的主页执行此操作。
+如果这一切听起来令人困惑，那么它实际上比听起来简单得多。在\content目录下创建一个名为_index.md的文件，内容如下：
+--- title: Home --- Hello, I&#39;m a ferocious lion. --- 是之前提到的元数据或 front matter。我们将在今后的课程中讨论这个问题。
+您的第一个布局 Your first layout Hugo 有一个层次结构来确定用于content_d文件的布局。最后的退路是在 _default 目录中寻找一个布局。(The last fallback is looking for a layout in the directory."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://davonos.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "",
+      "item": "https://davonos.github.io/posts/hugo-beginner-tutorial/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "",
+  "name": "",
+  "description": "Hugo的布局 了解Layouts是如何帮助您设置和重复使用 Hugo 网站的主要结构。\n善于利用Layouts是创建一个易于维护、灵活和繁荣的Hugo网站的关键，因此，让我们看看它们是如何发挥作用的。\n什么是布局（Layouts）？ Layouts 是用于页面上围绕内容的所有 \u0026ldquo;框架\u0026rdquo;。例如，想想一个网站上不同页面之间保持相对不变的所有东西，如页眉和页脚。\n在Hugo中，网站上的每个页面都是一个内容文件。最上面是一小段元数据，叫做front matter，后面是markdown。内容文件的目标是，以其最纯粹的形式存储内容。在内容文件中很少有任何HTML或其他表现逻辑。\n所有用于显示和格式化内容的花哨的HTML都存在于布局中。一个布局可能被用于多个内容页面。例如，在一个项目组合网站上，你可能会对你的“关于”页和服务页面使用相同的布局。其他时候，特别是如果你正在做一些复杂的事情，你可能会有一个布局专门用于一个单独的内容页面，例如一个带有复杂表格的联系页面。\n你的第一页 Your first page Hugo有一个叫做 Page Bundles 的概念，可能很难让你头脑清醒。我们将在这里做最低限度的工作，以使您的网站正常运行。\n默认情况下，内容页使用一种叫做 single（单页）的布局。创建一个确切命名为_index.md的内容文件，包括下划线和所有内容，这是一个特例。(Creating a content file which is named exactly , underscore and all, is the exception to this. )\n这些页面就像它周围页面的目录，默认使用一种叫做 list（列表）的布局。\n就像一本好的非小说类书籍一样，从目录开始是一个很好的做法。您将为网站的主页执行此操作。\n如果这一切听起来令人困惑，那么它实际上比听起来简单得多。在\\content目录下创建一个名为_index.md的文件，内容如下：\n--- title: Home --- Hello, I\u0026#39;m a ferocious lion. --- 是之前提到的元数据或 front matter。我们将在今后的课程中讨论这个问题。\n您的第一个布局 Your first layout Hugo 有一个层次结构来确定用于content_d文件的布局。最后的退路是在 _default 目录中寻找一个布局。(The last fallback is looking for a layout in the directory.",
+  "keywords": [
+    
+  ],
+  "articleBody": "Hugo的布局 了解Layouts是如何帮助您设置和重复使用 Hugo 网站的主要结构。\n善于利用Layouts是创建一个易于维护、灵活和繁荣的Hugo网站的关键，因此，让我们看看它们是如何发挥作用的。\n什么是布局（Layouts）？ Layouts 是用于页面上围绕内容的所有 “框架”。例如，想想一个网站上不同页面之间保持相对不变的所有东西，如页眉和页脚。\n在Hugo中，网站上的每个页面都是一个内容文件。最上面是一小段元数据，叫做front matter，后面是markdown。内容文件的目标是，以其最纯粹的形式存储内容。在内容文件中很少有任何HTML或其他表现逻辑。\n所有用于显示和格式化内容的花哨的HTML都存在于布局中。一个布局可能被用于多个内容页面。例如，在一个项目组合网站上，你可能会对你的“关于”页和服务页面使用相同的布局。其他时候，特别是如果你正在做一些复杂的事情，你可能会有一个布局专门用于一个单独的内容页面，例如一个带有复杂表格的联系页面。\n你的第一页 Your first page Hugo有一个叫做 Page Bundles 的概念，可能很难让你头脑清醒。我们将在这里做最低限度的工作，以使您的网站正常运行。\n默认情况下，内容页使用一种叫做 single（单页）的布局。创建一个确切命名为_index.md的内容文件，包括下划线和所有内容，这是一个特例。(Creating a content file which is named exactly , underscore and all, is the exception to this. )\n这些页面就像它周围页面的目录，默认使用一种叫做 list（列表）的布局。\n就像一本好的非小说类书籍一样，从目录开始是一个很好的做法。您将为网站的主页执行此操作。\n如果这一切听起来令人困惑，那么它实际上比听起来简单得多。在\\content目录下创建一个名为_index.md的文件，内容如下：\n--- title: Home --- Hello, I'm a ferocious lion. --- 是之前提到的元数据或 front matter。我们将在今后的课程中讨论这个问题。\n您的第一个布局 Your first layout Hugo 有一个层次结构来确定用于content_d文件的布局。最后的退路是在 _default 目录中寻找一个布局。(The last fallback is looking for a layout in the directory.）让我们为主页创建默认列表布局。\n在 /layouts/目录中创建一个新的文件夹，名为 _default，在里面创建 list.html，内容如下：\n\u003c!Doctype html\u003e \u003chtml\u003e \u003chead\u003e \u003cmeta charset=\"utf-8\"\u003e \u003ctitle\u003e{{ .Page.Title }}\u003c/title\u003e \u003c/head\u003e \u003cbody\u003e {{ .Content }} \u003c/body\u003e \u003c/html\u003e 这些 {{ *** }} 部分是使用Hugo模板从我们的内容文件（_index.md）中渲染内容，我们很快会介绍。\n好了， 这是在你的Hugo网站上通过布局呈现的真实内容。让我们用你网站上的第二个页面来庆祝一下。\n您的第二个布局 让我们在你的网站上弄第二个页面。创建：/content/about.md（注意，我们在这里没有使用下划线）\n--- title: About --- I'm learning Hugo, one step at a time. about.md默认会寻找一个名为single的布局。\n我们可以把/layouts/_default/list.html克隆到/layouts/_default/single.html中，这样就可以正常工作了，但你将不得不维护同一个布局的两个非常相似的版本。我们希望减少重复，并尽可能地使我们的生活更轻松。\n相反，在/layouts/_default/baseof.html创建一个新的布局，内容如下：\n\u003c!doctype html\u003e \u003chtml\u003e \u003chead\u003e \u003cmeta charset=\"utf-8\"\u003e \u003ctitle\u003e{{ .Page.Title }}\u003c/title\u003e \u003c/head\u003e \u003cbody\u003e {{ block \"main\" . }} {{ end }} \u003c/body\u003e \u003c/html\u003e 这与list布局几乎相同，只有一个小的变化。我们现在没有输出{{ .Content }}，而是有一个主 “块”。这个块是一个占位符，其他布局可以用它来只指定页面的那一部分。\n让我们用你的列表布局来做这件事。将/layouts/_default/list.html里的内容替换为：\n{{ define \"main\" }} {{ .Content }} {{ end }} 用完全相同的代码创建/layouts/_default/single.html。\n试着进入http://localhost:1313/about/，看看你的新的关于页面。\n添加样式 这是一门Hugo课程，所以我们不打算进入任何CSS。但是，您和我都同意默认浏览器样式还有很多不足之处。我不仅会给你一个样式表，它还会是一个 Sass 样式表，以便在您扩展网站时易于维护。\n我们已经有一个叫做static的目录，所有的静态资源都在这里。如果我们使用一个普通的CSS文件，这将是放置它的地方。我们使用的是Sass，它需要被处理成一个CSS文件。\n在我们网站的根部创建一个名为 /assets/ 的目录。这是需要某种形式的处理的资源将住在这里。在assets中，创建一个名为sass的目录。这是我们的.scss文件的位置。让我们在/assets/sass/main.scss创建一个主文件，内容如下：\nbody { width: 400px; margin: 0 auto; font-family: sans-serif; } nav ul { list-style: none; padding: 3px 5px; background: #111; a { color: #fff; text-decoration: none; \u0026:hover { text-decoration: underline; } } li { display: inline; } } footer { background: #f2f2f2; padding: 2px 2px; font-size: .7em; text-align: center; } #map { height: 300px; } 我们还需要在我们的HTML中引用样式表。打开/layouts/_default/baseof.html，在下面插入以下内容：\n{{ $style := resources.Get \"sass/main.scss\" | resources.ToCSS | resources.Minify }} \u003clink rel=\"stylesheet\" href=\"{{ $style.Permalink }}\"\u003e 这告诉Hugo建立.scss文件并在一个样式表标签中输出链接。\n你会注意到这将适用于 list 和 single 布局。我们之前所做的工作已经派上用场了! 你可能需要重新启动你的 hugo serve 以便在你的浏览器中看到这些变化。\n下一步是什么？\n目前，访问 “关于” 页面的唯一方法是直接导航到它。在下一课，我们将使用Hugo局部添加网站导航。\nHugo 的局部模板 Hugo partials 在这个Hugo教程中，学习如何用Partials将你的Hugo页面分解成更小的 “组件”。\n在本课中，我们将在网站的顶部创建一个导航栏，这个导航栏对所有页面都是一样的，我们将使用一个局部来实现。\nPartial的想法很简单：它是一个可以包含在布局中的文件，以减少重复或简单地隐藏一些复杂性。你将用一个局部模板来为你的网站添加一个导航条。虽然你可以把这个逻辑直接添加到你的 baseof.html 中，但有时把一个布局分割成较小的局部是很好的，这样你就不需要处理一个2000行的文件了。\n你的第一个Partial 在你的layouts目录下创建一个partials文件夹，所以最终路径将是/layouts/partials/。在里面创建nav.html，内容如下：\n\u003cnav\u003e \u003cul\u003e \u003cli\u003e\u003ca href=\"/\"\u003eHome\u003c/a\u003e\u003c/li\u003e \u003cli\u003e\u003ca href=\"/about/\"\u003eAbout\u003c/a\u003e\u003c/li\u003e \u003c/ul\u003e \u003c/nav\u003e 这就是已经处理好的导航。现在是时候把它纳入你的布局中了。打开/layouts/_default/baseof.html，在下面添加以下内容：\n{{ partial \"nav.html\" }} 在Go中，你的单引号对字符串没有好处，只有双引号才能指定一个字符串。\n渲染你的页面，就可以了。\n你的第二个Partial 让我们尝试另一个场景来展示Partial的力量。\n我们将进一步简化 baseof.html，把 的内容移到一个Partial。创建 /layouts/partials/meta.html，内容如下：\n\u003cmeta charset=\"utf-8\"\u003e \u003ctitle\u003e{{ print .Page.Title }}\u003c/title\u003e {{ $style := resources.Get \"sass/main.scss\" | resources.ToCSS | resources.Minify }} \u003clink rel=\"stylesheet\" href=\"{{ $style.Permalink }}\"\u003e 在这个部分，我们有一些变量需要当前页面的上下文。幸运的是，传递当前页面的上下文可以用一个字符来完成。\n打开/layouts/_default/baseof.html，用以下内容替换的内容。\n{{ partial \"meta.html\" . }} 结尾处的那个小 . 是传递当前页面的上下文，它允许部分打印出当前页面的标题。你会经常在你的Hugo网站中看到这种情况。\nhugo模板的基础知识 模板化 Go模板是Hugo中使用的灵活的模板语言。在这一课中，我们将了解Go模板的基本概念，并看看你如何在你的网站上使用它。\n通过Hugo模板，你可以控制你的页面是如何呈现的。你可以使用变量，在数组上循环，检查条件，并运行函数。把它看作是一种简单的编程语言，以帮助建立你网站上的页面。你布局中的那些大括号{{ }}，就是Hugo模板。\n什么是front matter Font matter 是你的内容文件顶部的一个元数据片段。有些元数据将是专门为Hugo而设的。例如，设置一个布局，或表明当前页面是一个草稿。其他形式的元数据将是针对你的网站的，例如，表明在页面上使用哪种类型的英雄，或你最喜欢的五种食物的列表。\nFront matter 的内容是以一个小的YAML片段的形式出现在内容文件的顶部。我们在索引页和关于页上都看到过这种形式。\n它可能看起来不大，但我们可以在我们的布局中使用Hugo的模板来引用这个front matter。\n什么是Hugo模板化？ Hugo使用Go模板作为其布局中的模板语言。一旦你掌握了它，它就很容易了。与Hugo中的许多事情一样，有时展示比讲述更容易。\nHugo模板化的例子 输出一个字符串 \u003cp\u003eA Go template is a normal HTML page. When you want to execute a piece of code, you can use double curly braces like this: {{ \"Hello!\" }}.\u003c/p\u003e Front matter的输出 \u003ctitle\u003e{{ .Params.title }}\u003c/title\u003e 站点配置的输出 \u003ctitle\u003e{{ .Params.title }} | {{ .Site.title }}\u003c/title\u003e 条件 {{ if isset .Params \"title\" }} \u003ctitle\u003e{{ .Params.title }}\u003c/title\u003e {{ else }} \u003ctitle\u003e{{ .Site.title }}\u003c/title\u003e {{ end }} 设置并输出一个变量 {{ $favorite_food := \"Gazelle\" }} {{ $favorite_food }} 循环 {{ $best_friends := slice \"pumbaa\" \"timon\" \"nala\" \"rafiki\" }} \u003cul\u003e {{ range $best_friends }} \u003cli\u003e{{ . }}\u003c/li\u003e {{ end }} \u003c/ul\u003e Nested Key values 嵌套键值 内容文件：\n--- title: Appearance apperance: eyes: green snoot: boopable whiskers: true limbs: - claws: 5 side: left position: front - claws: 4 side: right position: front - claws: 3 side: left position: back - claws: 5 side: right position: back --- Layouts file：\n{{ with .Params.appearance }} \u003ch3\u003eMy top appearance traits\u003c/h3\u003e \u003cdl\u003e \u003cdt\u003eEyes\u003c/dt\u003e \u003cdd\u003e{{ .eyes }}\u003c/dd\u003e \u003cdt\u003eSnoot\u003c/dt\u003e \u003cdd\u003e{{ .snoot }}\u003c/dd\u003e \u003cdt\u003eWhiskers\u003c/dt\u003e \u003cdd\u003e{{ .whiskers }}\u003c/dd\u003e {{ with .limbs }} \u003cdt\u003eClaws\u003c/dt\u003e \u003cdd\u003e \u003cul\u003e {{ range . }} \u003cli\u003e{{ .position }} {{ .side }} {{ .claws }\u003c/li\u003e {{ end }} \u003c/ul\u003e \u003c/dd\u003e {{ end }} \u003c/dl\u003e {{ end }} 这些是模板化的基础。在你的Hugo之旅中，你将会使用所有这些概念。你可以浏览一下模板文档，了解一下你还能做什么。\n如果你喜欢保持HTML输出的整洁，你可以使用{{-和-}}来修剪标签周围的空白。Hugo文档中就有一个很好的例子。\n把它全部放在一起 让我们把我们新的Hugo模板知识付诸行动，为你的网站添加一个包括你的名字和当前年份的页脚。在此基础上，我们将添加一个可选的前台事项字段，你可以用它来隐藏特定页面上的页脚。\n让我们从一个简单的问题开始。你的名字。在你的config.toml中把它作为一个新的键加入。因为这只是这个网站的东西，而不是一个特殊的Hugo术语，我们把它放在params对象下：\n[params] name = 'Simba' 现在让我们来创建局部。将footer.html添加到你的layout partials目录，内容如下：\n{{ with .Params.hide_footer }} {{ else }} \u003cfooter\u003e Website made by {{ .Site.Params.name }} in {{ now.Year }} \u003c/footer\u003e {{ end }} 最后在baseof.html布局中的之前调用局部：\n{{ partial \"footer.html\" . }} 为了检查hide_footer前台的工作情况，让我们通过在前台添加这个来关闭about.md页面上的页脚：\nhide_footer: true 运行hugo service，在浏览器中查看你的网站。主页有页脚，而 “关于 “页却没有。\n在Hugo写博客 Blogging in Hugo 在这个Hugo教程中，你将学习如何用Hugo的内容和布局创建一个博客。\nHugo中的博客相对来说是比较简单的。它包括一个列出所有博客文章的页面，以及一系列带有文章日期的内容页面。这就是它的全部内容。\n创建一个博客列表页 你将在这个例子中看到布局分层是如何工作的。\n在你的/content/目录下创建一个名为post的目录，并在其中创建一个名为_index.md的文件，内容如下：\ntitle: Blog _index.md - 还记得这意味着什么吗？它是一个内容文件，在这种情况下，它将列出你的文章。目前，它将尝试使用/layouts/_default/list.html布局。你不希望使用这个布局，因为这个页面没有任何内容。相反，你要创建一个新的布局，专门用于列出文章。\nHugo布局层次的工作方式是，它将首先寻找一个与当前章节相匹配的布局（将章节视为目录），然后再回到_default中的全局默认值。换句话说，我们可以在layouts目录下创建一个名为post的新目录，并在里面创建list.html，内容如下：\n{{ define \"main\" }} \u003ch1\u003eMy posts\u003c/h1\u003e \u003cul\u003e {{ range .Pages }} \u003cli\u003e \u003ca href=\"{{ .Permalink }}\"\u003e{{ .Title }}\u003c/a\u003e - {{ .Date.Format \"January 2, 2006\" }} \u003c/li\u003e {{ end }} \u003c/ul\u003e {{ end }} 这里有一些新的概念；让我解释一下。\n一个列表页（_index.html）有一个包含其所有子页的数组，变量为.Pages。\n.Date的格式被调用，并被传递一个2006年的随机日期。为什么会这样呢？这是 Go 的一个格式化日期的怪癖。你可以在这里阅读更多关于它的信息。\n.Permalink可以在任何页面上调用，以获得其末端的 URL。如果你想链接到一个页面，它就特别有用。\n这就是我们的列表页所需要的一切。让我们转到一篇文章上。\n创建一个帖子 我们已经完成了最困难的部分。让我们通过创建一些帖子来完成这个博客。\n帖子住在/content/posts目录下，不需要任何特殊的命名规则。我喜欢鼓励的一个建议是在文件名中加入文章的日期。Hugo会完全忽略它，但当你在成百上千的文章中找到一篇文章时，它是有帮助的。\n让我们创建三篇博文，让你开始吧。\n/contents/posts/2022-04-03-i-like-to-roar.md\n--- title: I like to roar date: 2022-04-03 --- Hi, quick update from me. I just want to let everyone know that I like roaring. /contents/posts/2022-04-02-today-i-made-friends.md\n--- title: Today I made friends date: 2022-04-02 --- I got lost in the woods today. Two friends, a Meerkat and a Warthog, found me,sung a song with me and gave my life new meaning. Today was a good day. /contents/posts/2022-04-01-vegan-experiment.md\n--- title: Vegan experiment date: 2022-04-01 --- I tried to become a vegan today. I made it to lunch time and couldn't bear the sight of another green leaf. Yuck! 就像博客列表页一样，这些帖子将尝试使用/layouts/_default/single.html。让我们在/layouts/posts/single.html创建一个专门用于文章的布局，内容如下：\n{{ define \"main\" }} \u003ch1\u003e{{ .Params.Title }}\u003c/h1\u003e \u003cp\u003e{{ .Date.Format \"January 2, 2006\" }}\u003c/p\u003e {{ .Content }} {{ end }} 最后，让我们把博客添加到导航中。打开/layouts/partials/nav.html，添加另一个项目：\n\u003cli\u003e\u003ca href=\"/posts/\"\u003eBlog\u003c/a\u003e\u003c/li\u003e 运行hugo serve，在浏览器中打开网站，查看你的杰作。\nUsing Data with Hugo 使用数据文件导入现有数据，或者在这个Hugo教程中拥有管理全局数据的简单方法。\nHugo中的数据文件有点像一个只读的数据库。它的工作方式是你可以把JSON、CSV、YAML、XML或TOML文件放在一个叫做data的目录中，然后用.Site.Data在布局中访问这些数据。如果你想花哨一点，你也可以在构建时从外部来源下载JSON或CSV文件。\n创建你的第一个数据文件 首先，我们要创建一个包含所有你喜欢的度假地点的数据文件。创建/data/vacation_spots.yml，内容如下：\n- name: Masai Mara National Reserve latitude: -1.484751 longitude: 35.101904 - name: Serengeti National Park latitude: -2.333333 longitude: 34.833332 - name: Okavango Delta latitude: -19.304543 longitude: 22.643703 - name: Etosha National Park latitude: -18.855591 longitude: 16.32932 - name: Kidepo Valley Park latitude: 3.882778 longitude: 33.874444 什么是短码？ 为了列出你最喜欢的度假地点，你需要：\n地图软件–你将使用神奇的OpenStreetMap和Leaflet。 一个标记物的JavaScript列表–你目前在一个数据文件中拥有这个列表 用于设置地图和标记的JavaScript 一个容纳地图的div 我们可以把所有这些放在一个内容文件中，但这将比我们目前拥有的简单的markdown要复杂得多。如果我们想在另一个页面上再次使用这个地图呢？那就需要复制和粘贴大量的HTML了。\n幸运的是，Hugo有一个答案，它叫做Shortcodes（短码）。短码类似于部分代码，只是你在内容文件中使用它们。Hugo甚至已经内置了一堆。\n你将创建一个短码，可以在任何内容文件中使用，以创建一个带有标记位置的地图。让我们看看它是如何工作的。\n你的第一个短码 在/layouts/中创建一个名为shortcodes的目录，并添加一个名为 vacation_spots.html的文件，内容如下：\n\u003cdiv id=\"map\"\u003e \u003clink rel=\"stylesheet\" href=\"https://unpkg.com/leaflet@1.7.1/dist/leaflet.css\" crossorigin=\"\"/\u003e \u003cscript src=\"https://unpkg.com/leaflet@1.7.1/dist/leaflet.js\" crossorigin=\"\"\u003e\u003c/script\u003e \u003cscript\u003e let markers = {{ $.Site.Data.vacation_spots }}; \u003c/script\u003e \u003cscript src=\"/map.js\"\u003e\u003c/script\u003e \u003c/div\u003e 这里有几件事情，让我解释一下：\n首先，我们有一个地图元素，它将容纳地图。\n然后我们加载Leaflet的样式表，它将帮助我们在地图上创建漂亮的图钉和弹出式窗口。\n接下来是Leaflet的JavaScript文件。\n接下来是来自你的数据文件的标记物列表。这里它被输出为一个JSON数组。\n最后我们参考/map.js，我们很快就会创建。它负责初始化地图和添加标记。\n让我们添加JavaScript来初始化地图和添加标记。创建/static/map.js，内容如下：\nconst map = L.map('map'); L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {attribution: '\u0026copy; OpenStreetMap contributors'}) .addTo(map); let bounds = []; for (let i = 0; i \u003c markers.length; i++ ) { const marker = L.marker([markers[i].latitude, markers[i].longitude]).addTo(map); marker.bindPopup(markers[i].name); bounds.push([markers[i].latitude, markers[i].longitude]); } map.fitBounds(bounds); 我们不是来学习JavaScript的，所以我把这个留给你来解读（或不解读）。\n下一步是什么？ 这只是你Hugo之旅的开始。你现在已经掌握了建立一个基本的Hugo网站的技能。要继续这个旅程，我推荐一些资源：\nHugo文档是学习Hugo所提供的一切的伟大资源。\nHugo社区论坛对新来者很欢迎。这是一个获得支持和与社区联系的好地方。\nBootstrap到客户可编辑的Hugo网站是一个更高级的Hugo教程，它告诉你如何将一个纯粹的静态网站转换成客户可更新的Hugo网站。\n谢谢你的阅读，祝你Hugo快乐\n参考链接：\nhttps://cloudcannon.com/community/learn/hugo-beginner-tutorial\n",
+  "wordCount" : "1072",
+  "inLanguage": "en",
+  "image": "https://davonos.github.io/images/papermod-cover.png","datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "0001-01-01T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "davon"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://davonos.github.io/posts/hugo-beginner-tutorial/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "DavonOs",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://davonos.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://davonos.github.io/" accesskey="h" title="DavonOs (Alt + H)">DavonOs</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://davonos.github.io/search" title="🔍搜索 (Alt &#43; /)" accesskey=/>
+                    <span>🔍搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://davonos.github.io/posts" title="✍️文章">
+                    <span>✍️文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://davonos.github.io/archives/" title="⏱时间轴">
+                    <span>⏱时间轴</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://davonos.github.io/tags" title="🔖标签">
+                    <span>🔖标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://davonos.github.io/about" title="🙋🏻‍♂️关于">
+                    <span>🙋🏻‍♂️关于</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://zuji.eu.org" title="🌱花园">
+                    <span>🌱花园</span>&nbsp;
+                    <svg fill="none" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="12" width="12">
+                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                        <path d="M15 3h6v6"></path>
+                        <path d="M10 14L21 3"></path>
+                    </svg>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://davonos.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://davonos.github.io/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      
+    </h1>
+    <div class="post-meta">6 min&nbsp;·&nbsp;davon
+
+</div>
+  </header> <div class="toc">
+    <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#hugo%e7%9a%84%e5%b8%83%e5%b1%80" aria-label="Hugo的布局">Hugo的布局</a><ul>
+                        
+                <li>
+                    <a href="#%e4%bb%80%e4%b9%88%e6%98%af%e5%b8%83%e5%b1%80layouts" aria-label="什么是布局（Layouts）？">什么是布局（Layouts）？</a></li>
+                <li>
+                    <a href="#%e4%bd%a0%e7%9a%84%e7%ac%ac%e4%b8%80%e9%a1%b5-your-first-page" aria-label="你的第一页 Your first page">你的第一页 Your first page</a></li>
+                <li>
+                    <a href="#%e6%82%a8%e7%9a%84%e7%ac%ac%e4%b8%80%e4%b8%aa%e5%b8%83%e5%b1%80-your-first-layout" aria-label="您的第一个布局 Your first layout">您的第一个布局 Your first layout</a></li>
+                <li>
+                    <a href="#%e6%82%a8%e7%9a%84%e7%ac%ac%e4%ba%8c%e4%b8%aa%e5%b8%83%e5%b1%80" aria-label="您的第二个布局">您的第二个布局</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e6%b7%bb%e5%8a%a0%e6%a0%b7%e5%bc%8f" aria-label="添加样式">添加样式</a></li>
+                <li>
+                    <a href="#hugo-%e7%9a%84%e5%b1%80%e9%83%a8%e6%a8%a1%e6%9d%bf-hugo-partials" aria-label="Hugo 的局部模板 Hugo partials">Hugo 的局部模板 Hugo partials</a><ul>
+                        
+                <li>
+                    <a href="#%e4%bd%a0%e7%9a%84%e7%ac%ac%e4%b8%80%e4%b8%aapartial" aria-label="你的第一个Partial">你的第一个Partial</a></li>
+                <li>
+                    <a href="#%e4%bd%a0%e7%9a%84%e7%ac%ac%e4%ba%8c%e4%b8%aapartial" aria-label="你的第二个Partial">你的第二个Partial</a></li></ul>
+                </li>
+                <li>
+                    <a href="#hugo%e6%a8%a1%e6%9d%bf%e7%9a%84%e5%9f%ba%e7%a1%80%e7%9f%a5%e8%af%86" aria-label="hugo模板的基础知识">hugo模板的基础知识</a><ul>
+                        
+                <li>
+                    <a href="#%e6%a8%a1%e6%9d%bf%e5%8c%96" aria-label="模板化">模板化</a></li>
+                <li>
+                    <a href="#%e4%bb%80%e4%b9%88%e6%98%affront-matter" aria-label="什么是front matter">什么是front matter</a></li>
+                <li>
+                    <a href="#%e4%bb%80%e4%b9%88%e6%98%afhugo%e6%a8%a1%e6%9d%bf%e5%8c%96" aria-label="什么是Hugo模板化？">什么是Hugo模板化？</a></li>
+                <li>
+                    <a href="#hugo%e6%a8%a1%e6%9d%bf%e5%8c%96%e7%9a%84%e4%be%8b%e5%ad%90" aria-label="Hugo模板化的例子">Hugo模板化的例子</a><ul>
+                        
+                <li>
+                    <a href="#%e8%be%93%e5%87%ba%e4%b8%80%e4%b8%aa%e5%ad%97%e7%ac%a6%e4%b8%b2" aria-label="输出一个字符串">输出一个字符串</a></li>
+                <li>
+                    <a href="#front-matter%e7%9a%84%e8%be%93%e5%87%ba" aria-label="Front matter的输出">Front matter的输出</a></li>
+                <li>
+                    <a href="#%e7%ab%99%e7%82%b9%e9%85%8d%e7%bd%ae%e7%9a%84%e8%be%93%e5%87%ba" aria-label="站点配置的输出">站点配置的输出</a></li>
+                <li>
+                    <a href="#%e6%9d%a1%e4%bb%b6" aria-label="条件">条件</a></li>
+                <li>
+                    <a href="#%e8%ae%be%e7%bd%ae%e5%b9%b6%e8%be%93%e5%87%ba%e4%b8%80%e4%b8%aa%e5%8f%98%e9%87%8f" aria-label="设置并输出一个变量">设置并输出一个变量</a></li>
+                <li>
+                    <a href="#%e5%be%aa%e7%8e%af" aria-label="循环">循环</a></li>
+                <li>
+                    <a href="#nested-key-values-%e5%b5%8c%e5%a5%97%e9%94%ae%e5%80%bc" aria-label="Nested Key values 嵌套键值">Nested Key values 嵌套键值</a></li>
+                <li>
+                    <a href="#%e6%8a%8a%e5%ae%83%e5%85%a8%e9%83%a8%e6%94%be%e5%9c%a8%e4%b8%80%e8%b5%b7" aria-label="把它全部放在一起">把它全部放在一起</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#%e5%9c%a8hugo%e5%86%99%e5%8d%9a%e5%ae%a2-blogging-in-hugo" aria-label="在Hugo写博客 Blogging in Hugo">在Hugo写博客 Blogging in Hugo</a><ul>
+                        
+                <li>
+                    <a href="#%e5%88%9b%e5%bb%ba%e4%b8%80%e4%b8%aa%e5%8d%9a%e5%ae%a2%e5%88%97%e8%a1%a8%e9%a1%b5" aria-label="创建一个博客列表页">创建一个博客列表页</a></li></ul>
+                </li>
+                <li>
+                    <a href="#using-data-with-hugo" aria-label="Using Data with Hugo">Using Data with Hugo</a><ul>
+                        
+                <li>
+                    <a href="#%e5%88%9b%e5%bb%ba%e4%bd%a0%e7%9a%84%e7%ac%ac%e4%b8%80%e4%b8%aa%e6%95%b0%e6%8d%ae%e6%96%87%e4%bb%b6" aria-label="创建你的第一个数据文件">创建你的第一个数据文件</a></li>
+                <li>
+                    <a href="#%e4%bb%80%e4%b9%88%e6%98%af%e7%9f%ad%e7%a0%81" aria-label="什么是短码？">什么是短码？</a></li>
+                <li>
+                    <a href="#%e4%bd%a0%e7%9a%84%e7%ac%ac%e4%b8%80%e4%b8%aa%e7%9f%ad%e7%a0%81" aria-label="你的第一个短码">你的第一个短码</a></li>
+                <li>
+                    <a href="#%e4%b8%8b%e4%b8%80%e6%ad%a5%e6%98%af%e4%bb%80%e4%b9%88" aria-label="下一步是什么？">下一步是什么？</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h2 id="hugo的布局">Hugo的布局<a hidden class="anchor" aria-hidden="true" href="#hugo的布局">#</a></h2>
+<p>了解Layouts是如何帮助您设置和重复使用 Hugo 网站的主要结构。</p>
+<p>善于利用<code>Layouts</code>是创建一个易于维护、灵活和繁荣的Hugo网站的关键，因此，让我们看看它们是如何发挥作用的。</p>
+<h3 id="什么是布局layouts">什么是布局（Layouts）？<a hidden class="anchor" aria-hidden="true" href="#什么是布局layouts">#</a></h3>
+<p><code>Layouts</code> 是用于页面上围绕内容的所有 &ldquo;框架&rdquo;。例如，想想一个网站上不同页面之间保持相对不变的所有东西，如页眉和页脚。</p>
+<p>在Hugo中，网站上的每个页面都是一个内容文件。最上面是一小段元数据，叫做<code>front matter</code>，后面是<code>markdown</code>。内容文件的目标是，以其最纯粹的形式存储内容。在内容文件中很少有任何HTML或其他表现逻辑。</p>
+<p>所有用于显示和格式化内容的花哨的HTML都存在于布局中。一个布局可能被用于多个内容页面。例如，在一个项目组合网站上，你可能会对你的“关于”页和服务页面使用相同的布局。其他时候，特别是如果你正在做一些复杂的事情，你可能会有一个布局专门用于一个单独的内容页面，例如一个带有复杂表格的联系页面。</p>
+<h3 id="你的第一页-your-first-page">你的第一页 Your first page<a hidden class="anchor" aria-hidden="true" href="#你的第一页-your-first-page">#</a></h3>
+<p>Hugo有一个叫做 <a href="https://gohugo.io/content-management/page-bundles/">Page Bundles</a> 的概念，可能很难让你头脑清醒。我们将在这里做最低限度的工作，以使您的网站正常运行。</p>
+<p>默认情况下，内容页使用一种叫做 <code>single</code>（单页）的布局。创建一个确切命名为<code>_index.md</code>的内容文件，包括下划线和所有内容，这是一个特例。(Creating a content file which is named exactly , underscore and all, is the exception to this. )</p>
+<p>这些页面就像它周围页面的目录，默认使用一种叫做 <code>list</code>（列表）的布局。</p>
+<p>就像一本好的非小说类书籍一样，从目录开始是一个很好的做法。您将为网站的主页执行此操作。</p>
+<p>如果这一切听起来令人困惑，那么它实际上比听起来简单得多。在<code>\content</code>目录下创建一个名为<code>_index.md</code>的文件，内容如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-md" data-lang="md"><span class="line"><span class="cl">---
+</span></span><span class="line"><span class="cl">title: Home
+</span></span><span class="line"><span class="cl">---
+</span></span><span class="line"><span class="cl">Hello, I&#39;m a ferocious lion.
+</span></span></code></pre></div><p><code>---</code> 是之前提到的元数据或 <code>front matter</code>。我们将在今后的课程中讨论这个问题。</p>
+<h3 id="您的第一个布局-your-first-layout">您的第一个布局 Your first layout<a hidden class="anchor" aria-hidden="true" href="#您的第一个布局-your-first-layout">#</a></h3>
+<p>Hugo 有一个<a href="https://gohugo.io/templates/lookup-order/">层次结构</a>来确定用于content_d文件的布局。最后的退路是在 <code>_default</code> 目录中寻找一个布局。(The last fallback is looking for a layout in the directory.）让我们为主页创建默认列表布局。</p>
+<p>在 <code>/layouts/</code>目录中创建一个新的文件夹，名为 <code>_default</code>，在里面创建 <code>list.html</code>，内容如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="cp">&lt;!Doctype html&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&#34;utf-8&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>{{ .Page.Title }}<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  {{ .Content }}
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</span></span></code></pre></div><p>这些 <code>{{ *** }}</code> 部分是使用Hugo模板从我们的内容文件（<code>_index.md</code>）中渲染内容，我们很快会介绍。</p>
+<p>好了， 这是在你的Hugo网站上通过布局呈现的真实内容。让我们用你网站上的第二个页面来庆祝一下。</p>
+<h3 id="您的第二个布局">您的第二个布局<a hidden class="anchor" aria-hidden="true" href="#您的第二个布局">#</a></h3>
+<p>让我们在你的网站上弄第二个页面。创建：<code>/content/about.md</code>（注意，我们在这里没有使用下划线）</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-md" data-lang="md"><span class="line"><span class="cl">---
+</span></span><span class="line"><span class="cl">title: About
+</span></span><span class="line"><span class="cl">---
+</span></span><span class="line"><span class="cl">I&#39;m learning Hugo, one step at a time.
+</span></span></code></pre></div><p><code>about.md</code>默认会寻找一个名为<code>single</code>的布局。</p>
+<p>我们可以把<code>/layouts/_default/list.html</code>克隆到<code>/layouts/_default/single.html</code>中，这样就可以正常工作了，但你将不得不维护同一个布局的两个非常相似的版本。我们希望减少重复，并尽可能地使我们的生活更轻松。</p>
+<p>相反，在<code>/layouts/_default/baseof.html</code>创建一个新的布局，内容如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="cp">&lt;!doctype html&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&#34;utf-8&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>{{ .Page.Title }}<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  {{ block &#34;main&#34; . }}
+</span></span><span class="line"><span class="cl">  {{ end }}
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</span></span></code></pre></div><p>这与<code>list</code>布局几乎相同，只有一个小的变化。我们现在没有输出{{ .Content }}，而是有一个主 &ldquo;块&rdquo;。这个块是一个占位符，其他布局可以用它来只指定页面的那一部分。</p>
+<p>让我们用你的列表布局来做这件事。将<code>/layouts/_default/list.html</code>里的内容替换为：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">{{ define &#34;main&#34; }}
+</span></span><span class="line"><span class="cl">  {{ .Content }}
+</span></span><span class="line"><span class="cl">{{ end }}
+</span></span></code></pre></div><p>用完全相同的代码创建<code>/layouts/_default/single.html</code>。</p>
+<p>试着进入<a href="http://localhost:1313/about/">http://localhost:1313/about/</a>，看看你的新的关于页面。</p>
+<h2 id="添加样式">添加样式<a hidden class="anchor" aria-hidden="true" href="#添加样式">#</a></h2>
+<p>这是一门Hugo课程，所以我们不打算进入任何CSS。但是，您和我都同意默认浏览器样式还有很多不足之处。我不仅会给你一个样式表，它还会是一个 <a href="https://sass-lang.com/">Sass</a> 样式表，以便在您扩展网站时易于维护。</p>
+<p>我们已经有一个叫做<code>static</code>的目录，所有的静态资源都在这里。如果我们使用一个普通的CSS文件，这将是放置它的地方。我们使用的是Sass，它需要被处理成一个CSS文件。</p>
+<p>在我们网站的根部创建一个名为 <code>/assets/</code> 的目录。这是需要某种形式的处理的资源将住在这里。在<code>assets</code>中，创建一个名为<code>sass</code>的目录。这是我们的<code>.scss</code>文件的位置。让我们在<code>/assets/sass/main.scss</code>创建一个主文件，内容如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scss" data-lang="scss"><span class="line"><span class="cl"><span class="nt">body</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="na">width</span><span class="o">:</span> <span class="mi">400</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">margin</span><span class="o">:</span> <span class="mi">0</span> <span class="ni">auto</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">font-family</span><span class="o">:</span> <span class="ni">sans-serif</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nt">nav</span> <span class="nt">ul</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="na">list-style</span><span class="o">:</span> <span class="ni">none</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">padding</span><span class="o">:</span> <span class="mi">3</span><span class="kt">px</span> <span class="mi">5</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">background</span><span class="o">:</span> <span class="mh">#111</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nt">a</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="na">color</span><span class="o">:</span> <span class="mh">#fff</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="na">text-decoration</span><span class="o">:</span> <span class="ni">none</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">&amp;</span><span class="nd">:hover</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="na">text-decoration</span><span class="o">:</span> <span class="ni">underline</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nt">li</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="na">display</span><span class="o">:</span> <span class="ni">inline</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nt">footer</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="na">background</span><span class="o">:</span> <span class="mh">#f2f2f2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">padding</span><span class="o">:</span> <span class="mi">2</span><span class="kt">px</span> <span class="mi">2</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">font-size</span><span class="o">:</span> <span class="mf">.7</span><span class="kt">em</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">text-align</span><span class="o">:</span> <span class="ni">center</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nn">#map</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="na">height</span><span class="o">:</span> <span class="mi">300</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>我们还需要在我们的HTML中引用样式表。打开<code>/layouts/_default/baseof.html</code>，在<code>&lt;/title&gt;</code>下面插入以下内容：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">{{ $style := resources.Get &#34;sass/main.scss&#34; | resources.ToCSS | resources.Minify }}
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;{{ $style.Permalink }}&#34;</span><span class="p">&gt;</span>
+</span></span></code></pre></div><p>这告诉Hugo建立<code>.scss</code>文件并在一个样式表标签中输出链接。</p>
+<p>你会注意到这将适用于 <code>list</code> 和 <code>single</code> 布局。我们之前所做的工作已经派上用场了! 你可能需要重新启动你的 <code>hugo serve</code> 以便在你的浏览器中看到这些变化。</p>
+<p>下一步是什么？</p>
+<p>目前，访问 &ldquo;关于&rdquo; 页面的唯一方法是直接导航到它。在下一课，我们将使用Hugo局部添加网站导航。</p>
+<h2 id="hugo-的局部模板-hugo-partials">Hugo 的局部模板 Hugo partials<a hidden class="anchor" aria-hidden="true" href="#hugo-的局部模板-hugo-partials">#</a></h2>
+<p>在这个Hugo教程中，学习如何用<code>Partials</code>将你的Hugo页面分解成更小的 &ldquo;组件&rdquo;。</p>
+<p>在本课中，我们将在网站的顶部创建一个导航栏，这个导航栏对所有页面都是一样的，我们将使用一个局部来实现。</p>
+<p><code>Partial</code>的想法很简单：它是一个可以包含在布局中的文件，以减少重复或简单地隐藏一些复杂性。你将用一个局部模板来为你的网站添加一个导航条。虽然你可以把这个逻辑直接添加到你的 <code>baseof.html</code> 中，但有时把一个布局分割成较小的局部是很好的，这样你就不需要处理一个2000行的文件了。</p>
+<h3 id="你的第一个partial">你的第一个Partial<a hidden class="anchor" aria-hidden="true" href="#你的第一个partial">#</a></h3>
+<p>在你的<code>layouts</code>目录下创建一个<code>partials</code>文件夹，所以最终路径将是<code>/layouts/partials/</code>。在里面创建<code>nav.html</code>，内容如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">nav</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;/&#34;</span><span class="p">&gt;</span>Home<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;/about/&#34;</span><span class="p">&gt;</span>About<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">nav</span><span class="p">&gt;</span>
+</span></span></code></pre></div><p>这就是已经处理好的导航。现在是时候把它纳入你的布局中了。打开<code>/layouts/_default/baseof.html</code>，在<code>&lt;body&gt;</code>下面添加以下内容：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">{{ partial &#34;nav.html&#34; }}
+</span></span></code></pre></div><p>在Go中，你的单引号对字符串没有好处，只有双引号才能指定一个字符串。</p>
+<p>渲染你的页面，就可以了。</p>
+<h3 id="你的第二个partial">你的第二个Partial<a hidden class="anchor" aria-hidden="true" href="#你的第二个partial">#</a></h3>
+<p>让我们尝试另一个场景来展示Partial的力量。</p>
+<p>我们将进一步简化 <code>baseof.html</code>，把 <code>&lt;head&gt;</code> 的内容移到一个<code>Partial</code>。创建 <code>/layouts/partials/meta.html</code>，内容如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&#34;utf-8&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>{{ print .Page.Title }}<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">{{ $style := resources.Get &#34;sass/main.scss&#34; | resources.ToCSS | resources.Minify }}
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;{{ $style.Permalink }}&#34;</span><span class="p">&gt;</span>
+</span></span></code></pre></div><p>在这个部分，我们有一些变量需要当前页面的上下文。幸运的是，传递当前页面的上下文可以用一个字符来完成。</p>
+<p>打开<code>/layouts/_default/baseof.html</code>，用以下内容替换<code>&lt;head&gt;</code>的内容。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">{{ partial &#34;meta.html&#34; . }}
+</span></span></code></pre></div><p>结尾处的那个小 <code>.</code> 是传递当前页面的上下文，它允许部分打印出当前页面的标题。你会经常在你的Hugo网站中看到这种情况。</p>
+<h2 id="hugo模板的基础知识">hugo模板的基础知识<a hidden class="anchor" aria-hidden="true" href="#hugo模板的基础知识">#</a></h2>
+<h3 id="模板化">模板化<a hidden class="anchor" aria-hidden="true" href="#模板化">#</a></h3>
+<p>Go模板是Hugo中使用的灵活的模板语言。在这一课中，我们将了解Go模板的基本概念，并看看你如何在你的网站上使用它。</p>
+<p>通过Hugo模板，你可以控制你的页面是如何呈现的。你可以使用变量，在数组上循环，检查条件，并运行函数。把它看作是一种简单的编程语言，以帮助建立你网站上的页面。你布局中的那些大括号{{ }}，就是Hugo模板。</p>
+<h3 id="什么是front-matter">什么是front matter<a hidden class="anchor" aria-hidden="true" href="#什么是front-matter">#</a></h3>
+<p>Font matter 是你的内容文件顶部的一个元数据片段。有些元数据将是专门为Hugo而设的。例如，设置一个布局，或表明当前页面是一个草稿。其他形式的元数据将是针对你的网站的，例如，表明在页面上使用哪种类型的英雄，或你最喜欢的五种食物的列表。</p>
+<p>Front matter 的内容是以一个小的YAML片段的形式出现在内容文件的顶部。我们在索引页和关于页上都看到过这种形式。</p>
+<p>它可能看起来不大，但我们可以在我们的布局中使用Hugo的模板来引用这个front matter。</p>
+<h3 id="什么是hugo模板化">什么是Hugo模板化？<a hidden class="anchor" aria-hidden="true" href="#什么是hugo模板化">#</a></h3>
+<p>Hugo使用Go模板作为其布局中的模板语言。一旦你掌握了它，它就很容易了。与Hugo中的许多事情一样，有时展示比讲述更容易。</p>
+<h3 id="hugo模板化的例子">Hugo模板化的例子<a hidden class="anchor" aria-hidden="true" href="#hugo模板化的例子">#</a></h3>
+<h4 id="输出一个字符串">输出一个字符串<a hidden class="anchor" aria-hidden="true" href="#输出一个字符串">#</a></h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="c">&lt;!-- Go模板是一个普通的HTML页面。当你想执行一段代码时，你可以使用双大括号，像这样：--&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>A Go template is a normal HTML page. When you want to execute a piece of code, you can use double curly braces like this: {{ &#34;Hello!&#34; }}.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span></span></code></pre></div><h4 id="front-matter的输出">Front matter的输出<a hidden class="anchor" aria-hidden="true" href="#front-matter的输出">#</a></h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="c">&lt;!-- You can reference a variable from your front matter in a layout with .Params. For example, you could output the title on your pages with: 
+</span></span></span><span class="line"><span class="cl"><span class="c">你可以在布局中用.Params来引用你Front matter的一个变量。例如，你可以在你的页面上输出标题用：--&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>{{ .Params.title }}<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+</span></span></code></pre></div><h4 id="站点配置的输出">站点配置的输出<a hidden class="anchor" aria-hidden="true" href="#站点配置的输出">#</a></h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="c">&lt;!-- Sometimes you&#39;ll want to set a variable globally in your config.toml. 
+</span></span></span><span class="line"><span class="cl"><span class="c">Hugo has already initalized a title in your config.toml. You can access
+</span></span></span><span class="line"><span class="cl"><span class="c">a variable from your global config with site. For example: 
+</span></span></span><span class="line"><span class="cl"><span class="c">有时你会想在config.toml中设置一个全局变量。
+</span></span></span><span class="line"><span class="cl"><span class="c">Hugo已经在你的config.toml中设置了一个标题。你可以从你的全局配置中用site.访问一个变量。比如说：
+</span></span></span><span class="line"><span class="cl"><span class="c">--&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>{{ .Params.title }} | {{ .Site.title }}<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+</span></span></code></pre></div><h4 id="条件">条件<a hidden class="anchor" aria-hidden="true" href="#条件">#</a></h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="c">&lt;!-- We might want to check if the front matter title exists. If
+</span></span></span><span class="line"><span class="cl"><span class="c">it exists, output it; if not, use the global config title.
+</span></span></span><span class="line"><span class="cl"><span class="c">我们可能想检查一下前面的标题是否存在。如果它存在，就输出它；如果不存在，就使用全局配置的标题。--&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">{{ if isset .Params &#34;title&#34; }}
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>{{ .Params.title }}<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">{{ else }}
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>{{ .Site.title }}<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">{{ end }}
+</span></span></code></pre></div><h4 id="设置并输出一个变量">设置并输出一个变量<a hidden class="anchor" aria-hidden="true" href="#设置并输出一个变量">#</a></h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="c">&lt;!-- variables at set with a $ sign. For example: 
+</span></span></span><span class="line"><span class="cl"><span class="c">变量在设置时带有$符号。例如：--&gt;</span>
+</span></span><span class="line"><span class="cl">{{ $favorite_food := &#34;Gazelle&#34; }}
+</span></span><span class="line"><span class="cl">{{ $favorite_food }}
+</span></span></code></pre></div><h4 id="循环">循环<a hidden class="anchor" aria-hidden="true" href="#循环">#</a></h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="c">&lt;!--In Go, an array that can change size is called a slice.
+</span></span></span><span class="line"><span class="cl"><span class="c">You can iterate over an array or slice using range. 
+</span></span></span><span class="line"><span class="cl"><span class="c">在Go中，一个可以改变大小的数组被称为切片。
+</span></span></span><span class="line"><span class="cl"><span class="c">你可以用range来遍历一个数组或切片。--&gt;</span>
+</span></span><span class="line"><span class="cl">{{ $best_friends := slice &#34;pumbaa&#34; &#34;timon&#34; &#34;nala&#34; &#34;rafiki&#34; }}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">{{ range $best_friends }}
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>{{ . }}<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">{{ end }}
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+</span></span></code></pre></div><h4 id="nested-key-values-嵌套键值">Nested Key values 嵌套键值<a hidden class="anchor" aria-hidden="true" href="#nested-key-values-嵌套键值">#</a></h4>
+<p>内容文件：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-md" data-lang="md"><span class="line"><span class="cl">---
+</span></span><span class="line"><span class="cl">title: Appearance
+</span></span><span class="line"><span class="cl">apperance:
+</span></span><span class="line"><span class="cl">  eyes: green
+</span></span><span class="line"><span class="cl">  snoot: boopable
+</span></span><span class="line"><span class="cl">  whiskers: true
+</span></span><span class="line"><span class="cl">  limbs:
+</span></span><span class="line"><span class="cl">    <span class="k">-</span> claws: 5
+</span></span><span class="line"><span class="cl">      side: left
+</span></span><span class="line"><span class="cl">      position: front
+</span></span><span class="line"><span class="cl">    <span class="k">-</span> claws: 4
+</span></span><span class="line"><span class="cl">      side: right
+</span></span><span class="line"><span class="cl">      position: front
+</span></span><span class="line"><span class="cl">    <span class="k">-</span> claws: 3
+</span></span><span class="line"><span class="cl">      side: left
+</span></span><span class="line"><span class="cl">      position: back
+</span></span><span class="line"><span class="cl">    <span class="k">-</span> claws: 5
+</span></span><span class="line"><span class="cl">      side: right
+</span></span><span class="line"><span class="cl">      position: back
+</span></span><span class="line"><span class="cl">---
+</span></span></code></pre></div><p>Layouts file：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="c">&lt;!-- If we want to output all of these variables, we could call .Params.appearance.x for each one. Instead we could use `with` to change the context to &#39;.&#39;. It also has the benefit of checking whether the variable exists and won&#39;t run the block if it doesn&#39;t. 
+</span></span></span><span class="line"><span class="cl"><span class="c">如果我们想输出所有这些变量，我们可以为每个变量调用.Params.appearance.x。相反，我们可以使用`with`来改变上下文为&#39;.&#39;。它还有一个好处，就是检查变量是否存在，如果不存在，就不会运行这个块。
+</span></span></span><span class="line"><span class="cl"><span class="c">--&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">{{ with .Params.appearance }}
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span>My top appearance traits<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">dl</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"> <span class="p">&lt;</span><span class="nt">dt</span><span class="p">&gt;</span>Eyes<span class="p">&lt;/</span><span class="nt">dt</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">dd</span><span class="p">&gt;</span>{{ .eyes }}<span class="p">&lt;/</span><span class="nt">dd</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">dt</span><span class="p">&gt;</span>Snoot<span class="p">&lt;/</span><span class="nt">dt</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">dd</span><span class="p">&gt;</span>{{ .snoot }}<span class="p">&lt;/</span><span class="nt">dd</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">dt</span><span class="p">&gt;</span>Whiskers<span class="p">&lt;/</span><span class="nt">dt</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">dd</span><span class="p">&gt;</span>{{ .whiskers }}<span class="p">&lt;/</span><span class="nt">dd</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"> {{ with .limbs }}
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">dt</span><span class="p">&gt;</span>Claws<span class="p">&lt;/</span><span class="nt">dt</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">dd</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">     <span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      {{ range . }}
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>{{ .position }} {{ .side }} {{ .claws }<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      {{ end }}
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">dd</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  {{ end }}
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">dl</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">{{ end }}
+</span></span></code></pre></div><p>这些是模板化的基础。在你的Hugo之旅中，你将会使用所有这些概念。你可以浏览一下<a href="https://gohugo.io/templates/introduction/">模板文档</a>，了解一下你还能做什么。</p>
+<p>如果你喜欢保持HTML输出的整洁，你可以使用<code>{{-&lt;/code&gt;和&lt;code&gt;-}}</code>来修剪标签周围的空白。Hugo文档中就有一个很好的<a href="https://gohugo.io/templates/introduction/#whitespace">例子</a>。</p>
+<h4 id="把它全部放在一起">把它全部放在一起<a hidden class="anchor" aria-hidden="true" href="#把它全部放在一起">#</a></h4>
+<p>让我们把我们新的Hugo模板知识付诸行动，为你的网站添加一个包括你的名字和当前年份的页脚。在此基础上，我们将添加一个可选的前台事项字段，你可以用它来隐藏特定页面上的页脚。</p>
+<p>让我们从一个简单的问题开始。你的名字。在你的<code>config.toml</code>中把它作为一个新的键加入。因为这只是这个网站的东西，而不是一个特殊的Hugo术语，我们把它放在params对象下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="p">[</span><span class="nx">params</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nx">name</span> <span class="p">=</span> <span class="s1">&#39;Simba&#39;</span>
+</span></span></code></pre></div><p>现在让我们来创建局部。将<code>footer.html</code>添加到你的<code>layout partials</code>目录，内容如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">{{ with .Params.hide_footer }}
+</span></span><span class="line"><span class="cl">  <span class="c">&lt;!-- No footer here! 这里没有页脚! --&gt;</span>
+</span></span><span class="line"><span class="cl">{{ else }}
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">footer</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    Website made by {{ .Site.Params.name }} in {{ now.Year }}
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;/</span><span class="nt">footer</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">{{ end }}
+</span></span></code></pre></div><p>最后在<code>baseof.html</code>布局中的<code>&lt;/body&gt;</code>之前调用局部：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">{{ partial &#34;footer.html&#34; . }}
+</span></span></code></pre></div><p>为了检查<code>hide_footer</code>前台的工作情况，让我们通过在前台添加这个来关闭<code>about.md</code>页面上的页脚：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-md" data-lang="md"><span class="line"><span class="cl">hide_footer: true
+</span></span></code></pre></div><p>运行<code>hugo service</code>，在浏览器中查看你的网站。主页有页脚，而 &ldquo;关于 &ldquo;页却没有。</p>
+<h2 id="在hugo写博客-blogging-in-hugo">在Hugo写博客 Blogging in Hugo<a hidden class="anchor" aria-hidden="true" href="#在hugo写博客-blogging-in-hugo">#</a></h2>
+<p>在这个Hugo教程中，你将学习如何用Hugo的内容和布局创建一个博客。</p>
+<p>Hugo中的博客相对来说是比较简单的。它包括一个列出所有博客文章的页面，以及一系列带有文章日期的内容页面。这就是它的全部内容。</p>
+<h3 id="创建一个博客列表页">创建一个博客列表页<a hidden class="anchor" aria-hidden="true" href="#创建一个博客列表页">#</a></h3>
+<p>你将在这个例子中看到布局分层是如何工作的。</p>
+<p>在你的<code>/content/</code>目录下创建一个名为<code>post</code>的目录，并在其中创建一个名为<code>_index.md</code>的文件，内容如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-md" data-lang="md"><span class="line"><span class="cl">title: Blog
+</span></span></code></pre></div><p><code>_index.md</code> - 还记得这意味着什么吗？它是一个内容文件，在这种情况下，它将列出你的文章。目前，它将尝试使用<code>/layouts/_default/list.html</code>布局。你不希望使用这个布局，因为这个页面没有任何内容。相反，你要创建一个新的布局，专门用于列出文章。</p>
+<p>Hugo布局层次的工作方式是，它将首先寻找一个与当前章节相匹配的布局（将章节视为目录），然后再回到<code>_default</code>中的全局默认值。换句话说，我们可以在<code>layouts</code>目录下创建一个名为<code>post</code>的新目录，并在里面创建<code>list.html</code>，内容如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">{{ define &#34;main&#34; }}
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>My posts<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  {{ range .Pages }}
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;{{ .Permalink }}&#34;</span><span class="p">&gt;</span>{{ .Title }}<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span> - {{ .Date.Format &#34;January 2, 2006&#34; }}
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  {{ end }}
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">{{ end }}
+</span></span></code></pre></div><p>这里有一些新的概念；让我解释一下。</p>
+<p>一个列表页（<code>_index.html</code>）有一个包含其所有子页的数组，变量为<code>.Pages</code>。</p>
+<p><code>.Date</code>的格式被调用，并被传递一个2006年的随机日期。为什么会这样呢？这是 Go 的一个格式化日期的怪癖。你可以在<a href="https://gohugo.io/functions/format/#gos-layout-string">这里</a>阅读更多关于它的信息。</p>
+<p><code>.Permalink</code>可以在任何页面上调用，以获得其末端的 URL。如果你想链接到一个页面，它就特别有用。</p>
+<p>这就是我们的列表页所需要的一切。让我们转到一篇文章上。</p>
+<p>创建一个帖子
+我们已经完成了最困难的部分。让我们通过创建一些帖子来完成这个博客。</p>
+<p>帖子住在<code>/content/posts</code>目录下，不需要任何特殊的命名规则。我喜欢鼓励的一个建议是在文件名中加入文章的日期。Hugo会完全忽略它，但当你在成百上千的文章中找到一篇文章时，它是有帮助的。</p>
+<p>让我们创建三篇博文，让你开始吧。</p>
+<p><code>/contents/posts/2022-04-03-i-like-to-roar.md</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-md" data-lang="md"><span class="line"><span class="cl">---
+</span></span><span class="line"><span class="cl">title: I like to roar
+</span></span><span class="line"><span class="cl">date: 2022-04-03
+</span></span><span class="line"><span class="cl">---
+</span></span><span class="line"><span class="cl">Hi, quick update from me. I just want to let everyone know that I like roaring.
+</span></span></code></pre></div><p><code>/contents/posts/2022-04-02-today-i-made-friends.md</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-md" data-lang="md"><span class="line"><span class="cl">---
+</span></span><span class="line"><span class="cl">title: Today I made friends
+</span></span><span class="line"><span class="cl">date: 2022-04-02
+</span></span><span class="line"><span class="cl">---
+</span></span><span class="line"><span class="cl">I got lost in the woods today. Two friends, a Meerkat and a Warthog, found me,sung a song with me and gave my life new meaning. Today was a good day.
+</span></span></code></pre></div><p><code>/contents/posts/2022-04-01-vegan-experiment.md</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-md" data-lang="md"><span class="line"><span class="cl">---
+</span></span><span class="line"><span class="cl">title: Vegan experiment
+</span></span><span class="line"><span class="cl">date: 2022-04-01
+</span></span><span class="line"><span class="cl">---
+</span></span><span class="line"><span class="cl">I tried to become a vegan today. I made it to lunch time and couldn&#39;t bear the sight of another green leaf. Yuck!
+</span></span></code></pre></div><p>就像博客列表页一样，这些帖子将尝试使用<code>/layouts/_default/single.html</code>。让我们在<code>/layouts/posts/single.html</code>创建一个专门用于文章的布局，内容如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">{{ define &#34;main&#34; }}
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>{{ .Params.Title }}<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>{{ .Date.Format &#34;January 2, 2006&#34; }}<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  {{ .Content }}
+</span></span><span class="line"><span class="cl">{{ end }}
+</span></span></code></pre></div><p>最后，让我们把博客添加到导航中。打开<code>/layouts/partials/nav.html</code>，添加另一个项目：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;/posts/&#34;</span><span class="p">&gt;</span>Blog<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+</span></span></code></pre></div><p>运行<code>hugo serve</code>，在浏览器中打开网站，查看你的杰作。</p>
+<h2 id="using-data-with-hugo">Using Data with Hugo<a hidden class="anchor" aria-hidden="true" href="#using-data-with-hugo">#</a></h2>
+<p>使用数据文件导入现有数据，或者在这个Hugo教程中拥有管理全局数据的简单方法。</p>
+<p>Hugo中的数据文件有点像一个只读的数据库。它的工作方式是你可以把JSON、CSV、YAML、XML或TOML文件放在一个叫做<code>data</code>的目录中，然后用<code>.Site.Data</code>在布局中访问这些数据。如果你想花哨一点，你也可以在构建时从外部来源下载JSON或CSV文件。</p>
+<h3 id="创建你的第一个数据文件">创建你的第一个数据文件<a hidden class="anchor" aria-hidden="true" href="#创建你的第一个数据文件">#</a></h3>
+<p>首先，我们要创建一个包含所有你喜欢的度假地点的数据文件。创建<code>/data/vacation_spots.yml</code>，内容如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl">- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Masai Mara National Reserve</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">latitude</span><span class="p">:</span><span class="w"> </span>-<span class="m">1.484751</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">longitude</span><span class="p">:</span><span class="w"> </span><span class="m">35.101904</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Serengeti National Park</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">latitude</span><span class="p">:</span><span class="w"> </span>-<span class="m">2.333333</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">longitude</span><span class="p">:</span><span class="w"> </span><span class="m">34.833332</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Okavango Delta</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">latitude</span><span class="p">:</span><span class="w"> </span>-<span class="m">19.304543</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">longitude</span><span class="p">:</span><span class="w"> </span><span class="m">22.643703</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Etosha National Park</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">latitude</span><span class="p">:</span><span class="w"> </span>-<span class="m">18.855591</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">longitude</span><span class="p">:</span><span class="w"> </span><span class="m">16.32932</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Kidepo Valley Park</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">latitude</span><span class="p">:</span><span class="w"> </span><span class="m">3.882778</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">longitude</span><span class="p">:</span><span class="w"> </span><span class="m">33.874444</span><span class="w">
+</span></span></span></code></pre></div><h3 id="什么是短码">什么是短码？<a hidden class="anchor" aria-hidden="true" href="#什么是短码">#</a></h3>
+<p>为了列出你最喜欢的度假地点，你需要：</p>
+<ul>
+<li>地图软件&ndash;你将使用神奇的<a href="https://www.openstreetmap.org/">OpenStreetMap</a>和<a href="https://leafletjs.com/">Leaflet</a>。</li>
+<li>一个标记物的JavaScript列表&ndash;你目前在一个数据文件中拥有这个列表</li>
+<li>用于设置地图和标记的JavaScript</li>
+<li>一个容纳地图的div</li>
+</ul>
+<p>我们可以把所有这些放在一个内容文件中，但这将比我们目前拥有的简单的markdown要复杂得多。如果我们想在另一个页面上再次使用这个地图呢？那就需要复制和粘贴大量的HTML了。</p>
+<p>幸运的是，Hugo有一个答案，它叫做<a href="https://gohugo.io/content-management/shortcodes/">Shortcodes（短码）</a>。短码类似于部分代码，只是你在内容文件中使用它们。Hugo甚至已经内置了<a href="https://gohugo.io/content-management/shortcodes/#use-hugos-built-in-shortcodes">一堆</a>。</p>
+<p>你将创建一个短码，可以在任何内容文件中使用，以创建一个带有标记位置的地图。让我们看看它是如何工作的。</p>
+<h3 id="你的第一个短码">你的第一个短码<a hidden class="anchor" aria-hidden="true" href="#你的第一个短码">#</a></h3>
+<p>在<code>/layouts/</code>中创建一个名为<code>shortcodes</code>的目录，并添加一个名为 <code>vacation_spots.html</code>的文件，内容如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;map&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://unpkg.com/leaflet@1.7.1/dist/leaflet.css&#34;</span> <span class="na">crossorigin</span><span class="o">=</span><span class="s">&#34;&#34;</span><span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://unpkg.com/leaflet@1.7.1/dist/leaflet.js&#34;</span> <span class="na">crossorigin</span><span class="o">=</span><span class="s">&#34;&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">let</span> <span class="nx">markers</span> <span class="o">=</span> <span class="p">{{</span> <span class="nx">$</span><span class="p">.</span><span class="nx">Site</span><span class="p">.</span><span class="nx">Data</span><span class="p">.</span><span class="nx">vacation_spots</span> <span class="p">}};</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;/map.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span></code></pre></div><p>这里有几件事情，让我解释一下：</p>
+<p>首先，我们有一个地图元素，它将容纳地图。</p>
+<p>然后我们加载Leaflet的样式表，它将帮助我们在地图上创建漂亮的图钉和弹出式窗口。</p>
+<p>接下来是Leaflet的JavaScript文件。</p>
+<p>接下来是来自你的数据文件的标记物列表。这里它被输出为一个JSON数组。</p>
+<p>最后我们参考<code>/map.js</code>，我们很快就会创建。它负责初始化地图和添加标记。</p>
+<p>让我们添加JavaScript来初始化地图和添加标记。创建<code>/static/map.js</code>，内容如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">map</span> <span class="o">=</span> <span class="nx">L</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="s1">&#39;map&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">L</span><span class="p">.</span><span class="nx">tileLayer</span><span class="p">(</span><span class="s1">&#39;https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png&#39;</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">    <span class="p">{</span><span class="nx">attribution</span><span class="o">:</span> <span class="s1">&#39;&amp;copy; &lt;a href=&#34;https://www.openstreetmap.org/copyright&#34;&gt;OpenStreetMap&lt;/a&gt; contributors&#39;</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nx">addTo</span><span class="p">(</span><span class="nx">map</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">bounds</span> <span class="o">=</span> <span class="p">[];</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">markers</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">marker</span> <span class="o">=</span> <span class="nx">L</span><span class="p">.</span><span class="nx">marker</span><span class="p">([</span><span class="nx">markers</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">latitude</span><span class="p">,</span> <span class="nx">markers</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">longitude</span><span class="p">]).</span><span class="nx">addTo</span><span class="p">(</span><span class="nx">map</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">marker</span><span class="p">.</span><span class="nx">bindPopup</span><span class="p">(</span><span class="nx">markers</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">name</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">bounds</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="nx">markers</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">latitude</span><span class="p">,</span> <span class="nx">markers</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">longitude</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">map</span><span class="p">.</span><span class="nx">fitBounds</span><span class="p">(</span><span class="nx">bounds</span><span class="p">);</span>
+</span></span></code></pre></div><p>我们不是来学习JavaScript的，所以我把这个留给你来解读（或不解读）。</p>
+<h3 id="下一步是什么">下一步是什么？<a hidden class="anchor" aria-hidden="true" href="#下一步是什么">#</a></h3>
+<p>这只是你Hugo之旅的开始。你现在已经掌握了建立一个基本的Hugo网站的技能。要继续这个旅程，我推荐一些资源：</p>
+<p><a href="https://gohugo.io/getting-started/installing/">Hugo文档</a>是学习Hugo所提供的一切的伟大资源。</p>
+<p><a href="https://gohugo.io/getting-started/installing/">Hugo社区论坛</a>对新来者很欢迎。这是一个获得支持和与社区联系的好地方。</p>
+<p><a href="https://cloudcannon.com/community/learn/bootstrap-to-a-client-editable-hugo-site/">Bootstrap</a>到客户可编辑的Hugo网站是一个更高级的Hugo教程，它告诉你如何将一个纯粹的静态网站转换成客户可更新的Hugo网站。</p>
+<p>谢谢你的阅读，祝你Hugo快乐</p>
+<p>参考链接：</p>
+<p><a href="https://cloudcannon.com/community/learn/hugo-beginner-tutorial">https://cloudcannon.com/community/learn/hugo-beginner-tutorial</a></p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://davonos.github.io/posts/my-first-post/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>我的第一篇文章</span>
+  </a>
+</nav>
+
+
+<ul class="share-buttons">
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share  on x"
+            href="https://x.com/intent/tweet/?text=&amp;url=https%3a%2f%2fdavonos.github.io%2fposts%2fhugo-beginner-tutorial%2f&amp;hashtags=">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M512 62.554 L 512 449.446 C 512 483.97 483.97 512 449.446 512 L 62.554 512 C 28.03 512 0 483.97 0 449.446 L 0 62.554 C 0 28.03 28.029 0 62.554 0 L 449.446 0 C 483.971 0 512 28.03 512 62.554 Z M 269.951 190.75 L 182.567 75.216 L 56 75.216 L 207.216 272.95 L 63.9 436.783 L 125.266 436.783 L 235.9 310.383 L 332.567 436.783 L 456 436.783 L 298.367 228.367 L 432.367 75.216 L 371.033 75.216 Z M 127.633 110 L 164.101 110 L 383.481 400.065 L 349.5 400.065 Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share  on linkedin"
+            href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fdavonos.github.io%2fposts%2fhugo-beginner-tutorial%2f&amp;title=&amp;summary=&amp;source=https%3a%2f%2fdavonos.github.io%2fposts%2fhugo-beginner-tutorial%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share  on reddit"
+            href="https://reddit.com/submit?url=https%3a%2f%2fdavonos.github.io%2fposts%2fhugo-beginner-tutorial%2f&title=">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share  on facebook"
+            href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fdavonos.github.io%2fposts%2fhugo-beginner-tutorial%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share  on whatsapp"
+            href="https://api.whatsapp.com/send?text=%20-%20https%3a%2f%2fdavonos.github.io%2fposts%2fhugo-beginner-tutorial%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-58.673,127.703c-33.842,-33.881 -78.847,-52.548 -126.798,-52.568c-98.799,0 -179.21,80.405 -179.249,179.234c-0.013,31.593 8.241,62.428 23.927,89.612l-25.429,92.884l95.021,-24.925c26.181,14.28 55.659,21.807 85.658,21.816l0.074,0c98.789,0 179.206,-80.413 179.247,-179.243c0.018,-47.895 -18.61,-92.93 -52.451,-126.81Zm-126.797,275.782l-0.06,0c-26.734,-0.01 -52.954,-7.193 -75.828,-20.767l-5.441,-3.229l-56.386,14.792l15.05,-54.977l-3.542,-5.637c-14.913,-23.72 -22.791,-51.136 -22.779,-79.287c0.033,-82.142 66.867,-148.971 149.046,-148.971c39.793,0.014 77.199,15.531 105.329,43.692c28.128,28.16 43.609,65.592 43.594,105.4c-0.034,82.149 -66.866,148.983 -148.983,148.984Zm81.721,-111.581c-4.479,-2.242 -26.499,-13.075 -30.604,-14.571c-4.105,-1.495 -7.091,-2.241 -10.077,2.241c-2.986,4.483 -11.569,14.572 -14.182,17.562c-2.612,2.988 -5.225,3.364 -9.703,1.12c-4.479,-2.241 -18.91,-6.97 -36.017,-22.23c-13.314,-11.876 -22.304,-26.542 -24.916,-31.026c-2.612,-4.484 -0.279,-6.908 1.963,-9.14c2.016,-2.007 4.48,-5.232 6.719,-7.847c2.24,-2.615 2.986,-4.484 4.479,-7.472c1.493,-2.99 0.747,-5.604 -0.374,-7.846c-1.119,-2.241 -10.077,-24.288 -13.809,-33.256c-3.635,-8.733 -7.327,-7.55 -10.077,-7.688c-2.609,-0.13 -5.598,-0.158 -8.583,-0.158c-2.986,0 -7.839,1.121 -11.944,5.604c-4.105,4.484 -15.675,15.32 -15.675,37.364c0,22.046 16.048,43.342 18.287,46.332c2.24,2.99 31.582,48.227 76.511,67.627c10.685,4.615 19.028,7.371 25.533,9.434c10.728,3.41 20.492,2.929 28.209,1.775c8.605,-1.285 26.499,-10.833 30.231,-21.295c3.732,-10.464 3.732,-19.431 2.612,-21.298c-1.119,-1.869 -4.105,-2.99 -8.583,-5.232Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share  on telegram"
+            href="https://telegram.me/share/url?text=&amp;url=https%3a%2f%2fdavonos.github.io%2fposts%2fhugo-beginner-tutorial%2f">
+            <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share  on ycombinator"
+            href="https://news.ycombinator.com/submitlink?t=&u=https%3a%2f%2fdavonos.github.io%2fposts%2fhugo-beginner-tutorial%2f">
+            <svg version="1.1" xml:space="preserve" width="30px" height="30px" viewBox="0 0 512 512" fill="currentColor"
+                xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape">
+                <path
+                    d="M449.446 0C483.971 0 512 28.03 512 62.554L512 449.446C512 483.97 483.97 512 449.446 512L62.554 512C28.03 512 0 483.97 0 449.446L0 62.554C0 28.03 28.029 0 62.554 0L449.446 0ZM183.8767 87.9921H121.8427L230.6673 292.4508V424.0079H281.3328V292.4508L390.1575 87.9921H328.1233L256 238.2489z" />
+            </svg>
+        </a>
+    </li>
+</ul>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2024 <a href="https://davonos.github.io/">DavonOs</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>
